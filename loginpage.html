@@ -1,0 +1,149 @@
+<?php
+session_start();
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<title>
+  Login page
+</title>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  }
+
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 330px;
+    padding: 20px 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    color: #07001f;
+    margin-bottom: 20px;
+  }
+
+  form input {
+    width: 92%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: #e4e4e4;
+  }
+
+  button {
+    font-size: 1rem;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 90%;
+    color: #fff;
+    background: rgb(17, 107, 143);
+    cursor: pointer;
+    box-shadow: 5px 5px 15px black;
+  }
+
+  button:hover {
+    background: rgba(17, 107, 143, 0.877);
+  }
+
+  input:focus {
+    border: 1px solid rgb(192, 192, 192);
+  }
+
+  .member {
+    font-size: 90%;
+    margin-top: 20px;
+  }
+
+  .recover {
+    text-align: right;
+    font-size: 90%;
+    margin: 10 30 0;
+  }
+
+  .recover a {
+    color: #464647;
+  }
+</style>
+
+<body>
+  <div class="center">
+    <h1> Login </h1>
+    <form method="post">
+      <input type="text" name="name" id="name" placeholder="Username" required><br><br>
+      <input type="password" name="password" id="password" placeholder="Password" required><br>
+
+      <button id="btnlog" type="submit" name="btnlog">Login</button>
+      <div class="member"> Not a Member 
+        <a href="Regpage.php">Register Here...! </a>
+      </div>
+  </div>
+  </form>
+
+
+  <?php
+
+
+if(isset($_POST['btnlog'])){
+ extract($_POST);
+
+$con = mysqli_connect("localhost", "root", "");
+$db=mysqli_select_db( $con, "gromartdb");
+
+$q="SELECT * FROM `form` WHERE uname= '$name' and pass='$password' ";
+
+if(mysqli_query($con,$q)){
+ echo "<script>alert('Login Successfully Done');
+   window.location = 'index.php';
+ </script>";
+
+ $_SESSION['uname']=$name;
+}
+else{
+ echo"<script>alert('Error Occured');
+  window.location = 'loginpage.php';
+</script>";
+}
+
+mysqli_close($con);
+
+
+}
+?>
+
+
+
+  <script type="text/javascript">
+    document.getElementById("btn").onclick = function () {
+      alert("you are login successfully")
+      window.open("index.php")
+    }
+  </script>
+
+  <body>
+    <html>
