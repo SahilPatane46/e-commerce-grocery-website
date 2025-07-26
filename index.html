@@ -1,8 +1,3 @@
-<!--<?php
-session_start();
-$name=$_SESSION['uname'];
-?>-->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,11 +27,6 @@ $name=$_SESSION['uname'];
 
   <header class="header">
     <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> Gro-Mart </a>
-   <!--  <span id="username"> Welcome to our Website
-            <?php echo"$name"; ?>-->
--->
-            
-</span>
     <nav class="navbar">
       <a href="#home">Home</a>
       <a href="#features">Services</a>
@@ -50,14 +40,15 @@ $name=$_SESSION['uname'];
       <div class="fas fa-bars" id="menu-btn"></div>
       <div class="fas fa-search" id="search-btn"></div>
       <div class="fas fa-shopping-cart" id="cart-btn"></div>
-      <a href="loginpage.php">
+      <a href="loginpage.html">
         <div class="fas fa-user" id="login-btn">
         </div> </a>
-        <!--<div  id="login-btn">
-        <a href="logout.php">
-        <div class="fa fa-sign-out" id="logout-btn">
-        </div> </a>
-        </div> -->
+        <div  id="login-btn">
+        <a href="loginpage.html" id="logout-btn">
+          <div class="fas fa-arrow-right" id="logout-btn"></div>
+        </a>
+
+      </div>
     </div>
 
     <form action="" class="search-form">
@@ -80,7 +71,7 @@ $name=$_SESSION['uname'];
         <div class="content">
           <h3>Onion</h3>
           <span class="price"> ₹40.9/-</span>
-          <sapan class="quantity">qty : 1</sapan>
+          <span class="quantity">qty : 1</span>
         </div>
       </div>
 
@@ -89,7 +80,7 @@ $name=$_SESSION['uname'];
         <div class="content">
           <h3>Chicken</h3>
           <span class="price"> ₹40.9/-</span>
-          <sapan class="quantity">qty : 1</sapan>
+          <span class="quantity">qty : 1</span>
         </div>
       </div>
 
@@ -335,7 +326,7 @@ $name=$_SESSION['uname'];
   <section class="footer">
     <div class="box-container">
       <div class="box">
-        <h3>Grocery Store <i class="fas fa-shopping-basket"> </i></h3>
+        <h3>Gro-mart <i class="fas fa-shopping-basket"> </i></h3>
         <p>
           Fresh Groceries, Delivered to Your Doorstep Shop
           Smart, Shop Online, Save Time...

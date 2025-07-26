@@ -111,6 +111,8 @@ section {
   margin-right: 0.3rem;
   cursor: pointer;
   text-align: center;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .header .icons div:hover {

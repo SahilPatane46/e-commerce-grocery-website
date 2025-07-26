@@ -1,8 +1,3 @@
-<?php
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,40 +99,6 @@ session_start();
       </div>
   </div>
   </form>
-
-
-  <?php
-
-
-if(isset($_POST['btnlog'])){
- extract($_POST);
-
-$con = mysqli_connect("localhost", "root", "");
-$db=mysqli_select_db( $con, "gromartdb");
-
-$q="SELECT * FROM `form` WHERE uname= '$name' and pass='$password' ";
-
-if(mysqli_query($con,$q)){
- echo "<script>alert('Login Successfully Done');
-   window.location = 'index.php';
- </script>";
-
- $_SESSION['uname']=$name;
-}
-else{
- echo"<script>alert('Error Occured');
-  window.location = 'loginpage.php';
-</script>";
-}
-
-mysqli_close($con);
-
-
-}
-?>
-
-
-
   <script type="text/javascript">
     document.getElementById("btn").onclick = function () {
       alert("you are login successfully")

@@ -78,36 +78,7 @@
     <div class="member">Already a member ?
       <a href="loginpage.php">Login Here </a>
     </div>
-
     </form>
   </div>
-
-  <?php
-
-   if(isset($_POST['btnsub'])){
-    extract($_POST);
- $con = mysqli_connect("localhost", "root", "");
- $db=mysqli_select_db( $con, "gromartdb");
-
- $sql="INSERT INTO `form`(`uname`, `email`, `pass`) VALUES ('$name','$email', '$password')";
-
-  if(mysqli_query($con,$sql)){
-    echo"<script>alert('Registration Successfully Done');
-      window.location='loginpage.php';
-    </script>";
-  }else{
-    echo"<script>alert('Error Occured');
-    window.location='Regpage.php';
-    </script>";
-    
-  }
-
-
- mysqli_close($con);
-   }
-
-
-?>
-
   <body>
     <html>
